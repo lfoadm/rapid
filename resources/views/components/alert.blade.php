@@ -6,7 +6,6 @@
         </div>
         <div>
             <p class="font-bold">{{ session('success') }} </p>
-            <p class="text-sm">Atualize a lista.</p>
         </div>
     </div>
 </div>
@@ -20,7 +19,6 @@
         </div>
         <div>
             <p class="font-bold">{{ session('message') }} </p>
-            <p class="text-sm">Atualize a lista.</p>
         </div>
     </div>
 </div>
@@ -34,7 +32,6 @@
         </div>
         <div>
             <p class="font-bold">{{ session('error') }} </p>
-            <p class="text-sm">Atualize a lista.</p>
         </div>
     </div>
 </div>

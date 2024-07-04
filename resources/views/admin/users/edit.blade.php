@@ -11,7 +11,12 @@
                 <div class="p-6 text-gray-400 dark:text-gray-600">
                     <form action="{{ route('users.update', $user->id) }}" method="POST">
                         @method('put')
-                        @include('admin.users.partials.form')
+                        @include('admin.users.partials.form', [
+                            'action' => route('users.update', $user->id),
+                            'method' => 'PUT',
+                            'buttonText' => 'Atualizar',
+                            'user' => $user,
+                        ])
 
                         {{-- <div class="space-y-12">
                             <div class="border-b border-gray-900/10 pb-12">

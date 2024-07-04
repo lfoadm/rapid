@@ -20,37 +20,39 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <ul role="list" class="divide-y divide-gray-100">
-                        @foreach ($users as $user)
-                        <li class="flex justify-between gap-x-6 py-5">
-                            <div class="flex min-w-0 gap-x-4">
-                                <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
-                                <div class="min-w-0 flex-auto">
-                                    <p class="text-sm font-semibold leading-6 text-gray-500">{{ $user->name }}</p>
-                                    <p class="mt-1 truncate text-xs leading-5 text-gray-400">{{ $user->email }}</p>
-                                </div>
-                            </div>
-                            <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                                <p class="text-sm leading-6 text-gray-300">
-                                    @if ($user->role === 'admin')
-                                    <h1>ADMIN</h1>
-                                    @else
-                                    <h1>USER</h1>
-                                    @endif
-                                </p>
-                                <p class="mt-1 text-xs leading-5 text-gray-500">Código: <time datetime="2023-01-23T13:23Z">{{ $user->id }}</time></p>
-                            </div>
-                            <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                                <a href="{{ route('users.edit', $user->id) }}">
-                                    <span class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10">Editar</span>
-                                </a>
-                            </div>
-                        </li>
-                        @endforeach
-                    </ul>
-                    {{ $users->links() }}
+
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                            <thead class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
+                                <tr>
+                                    <th class="py-3 px-4 text-left">Nome</th>
+                                    <th class="py-3 px-4 text-left hidden sm:table-cell">Código</th>
+                                    <th class="py-3 px-4 text-left hidden sm:table-cell">Email</th>
+                                    <th class="py-3 px-4 text-left hidden sm:table-cell">Cargo</th>
+                                    <th class="py-3 px-4 text-left">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 dark:text-gray-300">
+                                @foreach($users as $user)
+                                    <tr class="border-b dark:border-gray-600">
+                                        <td class="py-3 px-4">{{ $user->name }}</td>
+                                        <td class="py-3 px-4 hidden sm:table-cell">{{ $user->id }}</td>
+                                        <td class="py-3 px-4 hidden sm:table-cell">{{ $user->email }}</td>
+                                        <td class="py-3 px-4 hidden sm:table-cell">{{ $user->role }}</td>
+                                        <td class="py-3 px-4">
+                                            <a href="{{ route('users.edit', $user->id) }}" class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10">Editar</a>
+                                            <a href="{{ route('users.show', $user->id) }}" class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">Ver</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-8">
+                        {{ $users->links() }}
+
+                    </div>
                 </div>
             </div>
         </div>
