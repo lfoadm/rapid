@@ -31,10 +31,8 @@
                     class="block text-sm font-medium leading-6 text-gray-400">Função</label>
                 <div class="mt-2">
                     <select id="role" name="role" autocomplete="role" class="block w-full rounded-md border-0 py-1.5 text-gray-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        
                         <option value="user" {{ (old('role', $user->role ?? '') == 'user') ? 'selected' : '' }}>User</option>
                         <option value="admin" {{ (old('role', $user->role ?? '') == 'admin') ? 'selected' : '' }}>Admin</option>
-                        
                       </select>                                            
                     <x-input-error :messages="$errors->get('role')" class="mt-2" />
                 </div>
@@ -44,7 +42,7 @@
                 <div class="sm:col-span-12">
                     <label for="password" class="block text-sm font-medium leading-6 text-gray-400">Senha</label>
                     <div class="mt-2">
-                        <input type="password" required name="password" id="password"
+                        <input type="password" name="password" id="password"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-400 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>

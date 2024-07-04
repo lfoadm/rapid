@@ -9,10 +9,9 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 mt-4">
             <div class="bg-white dark:bg-gray-200 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-400 dark:text-gray-600">
-                    <form action="{{ route('users.store') }}" method="POST">
-                        
+                    <form action="{{ route('users.store') }}" method="POST">                        
                         @include('admin.users.partials.form', [
-                            'action' => route('users.store'),
+                            //'action' => route('users.store'),
                             'method' => 'POST',
                             'buttonText' => 'Criar',
                             'user' => new App\Models\User,
