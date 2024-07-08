@@ -4,8 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUserRequest extends StoreUserRequest
-
+class UpdateCityRequest extends StoreCityRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,8 +14,10 @@ class UpdateUserRequest extends StoreUserRequest
     public function rules(): array
     {
         $rules = parent::rules();
-        $rules['email'] = [ 'required', 'string', 'lowercase', 'email', 'max:255' ];
-        $rules['password'] = [ 'nullable' ];
+        $rules['name'] = [ 'required', 'string'];
+        $rules['state'] = [ 'required', 'string'];
+        $rules['status'] = [ 'nullable'];
+
         return $rules;
     }
 }

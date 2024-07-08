@@ -25,6 +25,21 @@
                     </div>
                 @endif
 
+                <!-- Menu item with submenu -->
+                <div class="relative group hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="#">
+                        {{ __('Cadastros') }}
+                    </x-nav-link>
+                    <div class="absolute hidden group-hover:block bg-gray-600 shadow-lg rounded-md mt-12">
+                        <x-nav-link href="{{ route('cities.index') }}" class="block px-4 py-2 text-sm text-gray-700">
+                            {{ __('Cidades') }}
+                        </x-nav-link>
+                        <x-nav-link href="#" class="block px-4 py-2 text-sm text-gray-700 mt-3">
+                            {{ __('Vereadores') }}
+                        </x-nav-link>
+                        
+                    </div>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
