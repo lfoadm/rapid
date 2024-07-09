@@ -13,6 +13,7 @@
                     {{ __("You're logged in!") }}
                     @can('is-admin')
                     <h1 class="text-7xl">SÓ ADMIN QUEM VE!!</h1>
+                    <h1 class="text-pink-500 mt-10 text-7xl">CAROLINA!!</h1>
                     @endcan
                 </div>
             </div>
