@@ -25,6 +25,7 @@
                         <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
                             <thead class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
                                 <tr>
+                                    <th class="py-3 px-4 text-left">Avatar</th>
                                     <th class="py-3 px-4 text-left">Nome</th>
                                     <th class="py-3 px-4 text-left hidden sm:table-cell">Código</th>
                                     <th class="py-3 px-4 text-left hidden sm:table-cell">Email</th>
@@ -35,6 +36,15 @@
                             <tbody class="text-gray-700 dark:text-gray-300">
                                 @foreach($users as $user)
                                     <tr class="border-b dark:border-gray-600">
+                                        <td>
+                                            <div class="flex items-center justify-center">
+                                                @if ($user->picture)
+                                                    <img src="{{ asset($user->picture) }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
+                                                @else
+                                                    <img src="{{ asset('pictures/default.png') }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
+                                                @endif
+                                            </div>
+                                        </td>
                                         <td class="py-3 px-4">{{ $user->name }}</td>
                                         <td class="py-3 px-4 hidden sm:table-cell">{{ $user->id }}</td>
                                         <td class="py-3 px-4 hidden sm:table-cell">{{ $user->email }}</td>

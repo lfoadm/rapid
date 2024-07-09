@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public $per_page = 10;
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(6);
+        $users = User::orderBy('id', 'desc')->simplePaginate($this->per_page);
         return view('admin.users.index', compact('users'));
     }
 

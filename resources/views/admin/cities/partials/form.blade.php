@@ -35,7 +35,7 @@
 </div>
 
 <div class="mt-6 flex items-center justify-end gap-x-6">
-    <a class="text-sm font-semibold leading-6 text-gray-400" href="{{ route('users.index') }}">
+    <a class="text-sm font-semibold leading-6 text-gray-400" href="{{ route('cities.index') }}">
         Cancelar
     </a>
     
