@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
@@ -22,6 +23,7 @@ Route::middleware('auth')->group(function () {
     //ADMINISTRATION
     Route::resource('users', UserController::class)->middleware('is_admin:ADMIN');
     Route::resource('cities', CityController::class)->middleware('is_admin:ADMIN');
+    Route::resource('candidates', CandidateController::class)->middleware('is_admin:ADMIN');
 });
 
 require __DIR__.'/auth.php';

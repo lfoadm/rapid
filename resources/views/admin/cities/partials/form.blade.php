@@ -1,7 +1,7 @@
 @csrf
 <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
-        <p class="mt-1 text-sm leading-6 text-gray-700">Só administradores possuem permissõespara cadastrar nova cidade</p>
+        <p class="mt-1 text-sm leading-6 text-gray-700">Só administradores possuem permissões para cadastrar nova cidade</p>
 
         <div class="mt-10 grid grid-cols-1    gap-x-6 gap-y-8 sm:grid-cols-6">
 

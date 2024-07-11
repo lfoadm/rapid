@@ -33,7 +33,7 @@
                             <x-nav-link href="{{ route('cities.index') }}" class="block px-4 py-2 text-sm text-gray-700">
                                 {{ __('Cidades') }}
                             </x-nav-link>
-                            <x-nav-link href="#" class="block px-4 py-2 text-sm text-gray-700 mt-3">
+                            <x-nav-link href="{{ route('candidates.index') }}" class="block px-4 py-2 text-sm text-gray-700 mt-3">
                                 {{ __('Vereadores') }}
                             </x-nav-link>
                         </div>
@@ -123,7 +123,7 @@
                 <x-nav-link href="{{ route('cities.index') }}" class="block px-4 py-2 text-sm text-gray-700">
                     {{ __('Cidades') }}
                 </x-nav-link>
-                <x-nav-link href="#" class="block px-4 py-2 text-sm text-gray-700 mt-3">
+                <x-nav-link href="{{ route('candidates.index') }}" class="block px-4 py-2 text-sm text-gray-700 mt-3">
                     {{ __('Vereadores') }}
                 </x-nav-link>
                 

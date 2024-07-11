@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\Candidate;
 use App\Models\Admin\City;
 use App\Models\User;
 use Database\Factories\CityFactory;
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);        
         
         User::factory(40)->create();
+        //City::factory(10)->create();
 
         City::factory()->create([
             'name' => 'ITURAMA',
@@ -61,6 +63,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'OUROESTE',
             'state' => 'SP',
         ]);
-        
+      
+        Candidate::factory(90)->create();
     }
 }
+
