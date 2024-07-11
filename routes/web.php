@@ -20,8 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //ADMINISTRATION
-    Route::resource('users', UserController::class)->middleware('is_admin:admin');
-    Route::resource('cities', CityController::class)->middleware('is_admin:admin');
+    Route::resource('users', UserController::class)->middleware('is_admin:ADMIN');
+    Route::resource('cities', CityController::class)->middleware('is_admin:ADMIN');
 });
 
 require __DIR__.'/auth.php';

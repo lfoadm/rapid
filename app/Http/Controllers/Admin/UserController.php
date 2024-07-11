@@ -16,7 +16,7 @@ class UserController extends Controller
     public $per_page = 10;
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->simplePaginate($this->per_page);
+        $users = User::orderBy('id', 'desc')->paginate($this->per_page);
         return view('admin.users.index', compact('users'));
     }
 
@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function edit(string $id)
     {
-        $roles = ['user', 'admin'];
+        $roles = ['USER', 'ADMIN'];
         // dd($roles);
 
         if(!$user = User::find($id)) {

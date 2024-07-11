@@ -17,29 +17,28 @@
                     </x-nav-link>
                 </div>
                 
-                @if(Auth::user() && auth()->user()->role === 'admin')
+                @if(Auth::user() && auth()->user()->role === 'ADMIN')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             {{ __('Usuários') }}
                         </x-nav-link>
                     </div>
-                @endif
-
-                <!-- Menu item with submenu -->
-                <div class="relative group hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    
+                    <!-- Menu item with submenu -->
+                    <div class="relative group hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="#">
                         {{ __('Cadastros') }}
                     </x-nav-link>
-                    <div class="absolute hidden group-hover:block bg-gray-600 shadow-lg rounded-md mt-12">
-                        <x-nav-link href="{{ route('cities.index') }}" class="block px-4 py-2 text-sm text-gray-700">
-                            {{ __('Cidades') }}
-                        </x-nav-link>
-                        <x-nav-link href="#" class="block px-4 py-2 text-sm text-gray-700 mt-3">
-                            {{ __('Vereadores') }}
-                        </x-nav-link>
-                        
+                        <div class="absolute hidden group-hover:block bg-gray-600 shadow-lg rounded-md mt-12">
+                            <x-nav-link href="{{ route('cities.index') }}" class="block px-4 py-2 text-sm text-gray-700">
+                                {{ __('Cidades') }}
+                            </x-nav-link>
+                            <x-nav-link href="#" class="block px-4 py-2 text-sm text-gray-700 mt-3">
+                                {{ __('Vereadores') }}
+                            </x-nav-link>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -101,7 +100,7 @@
             </x-responsive-nav-link>
         </div>
 
-        @if(Auth::user() && auth()->user()->role === 'admin')
+        @if(Auth::user() && auth()->user()->role === 'ADMIN')
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                     {{ __('Usuários') }}
@@ -113,7 +112,6 @@
                     {{ __('Cidades') }}
                 </x-nav-link>
             </div>
-
         @endif
 
         <!-- Menu item with submenu -->
