@@ -9,6 +9,7 @@ use App\Models\Admin\Candidate;
 use App\Models\Admin\City;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CandidateController extends Controller
 {
@@ -26,7 +27,24 @@ class CandidateController extends Controller
 
     public function store(StoreCandidateRequest $request): RedirectResponse
     {
-        Candidate::create($request->validated());
+        $path = null;
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->storePublicly('images');
+        }
+
+        $candidate = Candidate::create([
+            'name' => $request->name,
+            'surname'=> $request->surname,
+            'city_id'=> $request->city_id,
+            'number'=> $request->number,
+            'acronym'=> $request->acronym,
+            'status'=> $request->status,
+            'elected'=> false,
+            'image' => $path,
+        ]);
+        
+        // dd($candidate);
+        // Candidate::create($request->validated());
         return redirect(route('candidates.index'))->with('success', 'Candidato cadastrado com sucesso!');
     }
 
@@ -45,18 +63,50 @@ class CandidateController extends Controller
         if(!$candidate = Candidate::find($id)) {
             return back()->with('message', 'Candidato não encontrada');
         };
-
-        $candidate->update($request->only([
-            'name',
-            'surname',
-            'number',
-            'city_id',
-            'acronym',
-            'status',
-            'image',
-        ]));
+        
+        $path = null;
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->storePublicly('images');
+        }
+        
+        if(File::exists($candidate->image)) {
+            File::delete($candidate->image);
+        }
+                
+        $candidate->update([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'number' => $request->number,
+            'city_id' => $request->city_id,
+            'acronym' => $request->acronym,
+            'status' => $request->status,
+            'image' => $path
+        ]);
 
         return redirect(route('candidates.index'))->with('success', 'Candidato editado com sucesso!');
     }
 
+    public function show(string $id)
+    {
+        if(!$candidate = Candidate::find($id)) {
+            return redirect()->route('candidates.index')->with('message', 'Candidato não encontrada');
+        };
+        
+        return view('admin.candidates.show', compact('candidate'));
+    }
+
+    public function destroy(string $id)
+    {
+        
+        if(!$candidate = Candidate::find($id)) {
+            return redirect()->route('candidates.index')->with('message', 'Candidato não encontrada');
+        };
+
+        if(File::exists($candidate->image)) {
+            File::delete($candidate->image);
+        }
+
+        $candidate->delete();
+        return redirect()->route('candidates.index')->with('message', 'Candidato apagada com sucesso');
+    }
 }

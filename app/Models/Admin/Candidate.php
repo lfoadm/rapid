@@ -18,6 +18,7 @@ class Candidate extends Model
         'acronym',
         'status',
         'elected',
+        'image',
     ];
 
     public function city()

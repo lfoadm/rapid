@@ -37,10 +37,10 @@
                                     <tr class="border-b dark:border-gray-600">
                                         <td>
                                             <div class="flex items-center justify-center">
-                                                @if ($candidate->picture)
-                                                    <img src="{{ asset($candidate->picture) }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
+                                                @if ($candidate->image)
+                                                    <img src="{{ asset($candidate->image) }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
                                                 @else
-                                                    <img src="{{ asset('pictures/default.png') }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
+                                                    <img src="{{ asset('images/default.png') }}" alt="" class="w-8 h-8 rounded-full object-cover mr-2">
                                                 @endif
                                             </div>
                                         </td>
