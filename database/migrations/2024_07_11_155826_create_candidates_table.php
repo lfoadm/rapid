@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->boolean('elected')->default(false);
             $table->string('image')->nullable();
+            // $table->softDeletes();
             $table->timestamps();
         });
     }
