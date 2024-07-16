@@ -27,6 +27,11 @@ class Candidate extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class, 'bilhete_vereadores');
+    }
+    
     protected function status(): Attribute
     {
         return Attribute::make(

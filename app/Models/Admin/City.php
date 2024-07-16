@@ -17,6 +17,16 @@ class City extends Model
         'status',
     ];
 
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class);
+    }
+
+    public function tickets()
+    {
+        return $this->belongsToMany(Ticket::class);
+    }
+
     protected function status(): Attribute
     {
         return Attribute::make(
