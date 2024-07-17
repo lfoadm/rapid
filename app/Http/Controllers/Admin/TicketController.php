@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Candidate;
 use App\Models\Admin\City;
 use App\Models\Admin\Ticket;
 use Illuminate\Http\Request;
@@ -17,10 +18,16 @@ class TicketController extends Controller
         return view('admin.tickets.index', compact('tickets'));
     }
 
-    public function create()
+    // public function create()
+    // {        
+    //     return view('admin.tickets.create', compact('city'));
+    // }
+
+    public function create_ticket(string $id)
     {
-        $cities = City::all();
-        return view('admin.tickets.create', compact('cities'));
+        $city = City::find($id);
+        $candidates = $city->candidates()->paginate(6);
+        return view('admin.tickets.create', compact('city', 'candidates'));
     }
 
     public function store(Request $request)
