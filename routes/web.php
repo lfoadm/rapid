@@ -26,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('cities', CityController::class)->middleware('is_admin:ADMIN');
     Route::resource('candidates', CandidateController::class)->middleware('is_admin:ADMIN');
     Route::resource('tickets', TicketController::class);
+    
+    Route::get('/cities/{city}/candidates', [CityController::class, 'candidates'])->name('cities.candidates');
+    Route::get('/iturama/{city}/candidates', [TicketController::class, 'iturama'])->name('ticket.iturama');
+
 });
 
 require __DIR__.'/auth.php';

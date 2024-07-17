@@ -108,7 +108,7 @@
                                     <span class="text-5xl font-bold tracking-tight text-gray-900">R$ 850,00</span>
                                     <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600"></span>
                                 </p>
-                                <a href="{{ route('tickets.index') }}" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <a href="{{ route('ticket.iturama', $city->id) }}" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     Comprar
                                 </a>
                                 <p class="mt-6 text-xs leading-5 text-gray-600">Para comprar, é necessário realizar o login ou registrar-se!</p>

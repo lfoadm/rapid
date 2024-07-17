@@ -16,6 +16,11 @@ class CityController extends Controller
         return view('admin.cities.index', compact('cities'));
     }
 
+    public function candidates(City $city)
+    {
+        return response()->json($city->candidates);
+    }
+
     public function create()
     {
         return view('admin.cities.create');
