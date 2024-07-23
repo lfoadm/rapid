@@ -31,8 +31,7 @@ class DatabaseSeeder extends Seeder
             //'role' => 'ADMIN'
         ]);        
         
-        User::factory(40)->create();
-        //City::factory(10)->create();
+        User::factory(1)->create();
 
         City::factory()->create([
             'name' => 'ITURAMA',
@@ -43,28 +42,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'CARNEIRINHO',
             'state' => 'MG',
         ]);
-
-        City::factory()->create([
-            'name' => 'CAMPINA VERDE',
-            'state' => 'MG',
-        ]);
-
-        City::factory()->create([
-            'name' => 'UNIÃO DE MINAS',
-            'state' => 'MG',
-        ]);
-
-        City::factory()->create([
-            'name' => 'LIMEIRA DO OESTE',
-            'state' => 'MG',
-        ]);
-
-        City::factory()->create([
-            'name' => 'OUROESTE',
-            'state' => 'SP',
-        ]);
       
-        Candidate::factory(90)->create();
+        Candidate::factory(18)->create();
     }
 }
 

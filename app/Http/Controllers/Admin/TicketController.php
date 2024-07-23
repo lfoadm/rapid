@@ -18,16 +18,17 @@ class TicketController extends Controller
         return view('admin.tickets.index', compact('tickets'));
     }
 
-    // public function create()
-    // {        
-    //     return view('admin.tickets.create', compact('city'));
-    // }
-
-    public function create_ticket(string $id)
-    {
+    public function create(String $id)
+    {   
         $city = City::find($id);
-        $candidates = $city->candidates()->paginate(6);
-        return view('admin.tickets.create', compact('city', 'candidates'));
+        $candidates = Candidate::where('city_id', $city->id)->get()->map(function ($candidate) {
+            return [
+                'label' => $candidate->name,
+                'value' => $candidate->id
+            ];
+        });
+    
+        return view('admin.tickets.create', compact('candidates', 'city'));
     }
 
     public function store(Request $request)

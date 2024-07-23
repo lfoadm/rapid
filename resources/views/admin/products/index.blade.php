@@ -19,16 +19,15 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <div class="overflow-x-auto">
-                        @if ($products->lenght == 0)
-                            <p>Não há produtos cadastrados</p>
-                            @else
-                            <h1>nada</h1>
-                        @endif
+                        @if ($products->isEmpty())
+                            <h4 class="text-center py-4">Não há itens cadastrados...</h4>
+                        @else
                         <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
                             <thead class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
                                 <tr>
                                     <th class="py-3 px-4 text-center">Título</th>
                                     <th class="py-3 px-4 hidden sm:table-cell text-center">Cidade</th>
+                                    <th class="py-3 px-4 hidden sm:table-cell text-center">Qtde. eleitos</th>
                                     <th class="py-3 px-4 hidden sm:table-cell text-center">Status</th>
                                     <th class="py-3 px-4  text-center">Ações</th>
                                 </tr>
@@ -38,6 +37,7 @@
                                     <tr class="border-b dark:border-gray-600">
                                         <td class="py-3 px-4 text-center">{{ $product->title }}</td>
                                         <td class="py-3 px-4 hidden sm:table-cell text-center">{{ $product->city->name }}</td>
+                                        <td class="py-3 px-4 hidden sm:table-cell text-center">{{ $product->qty_elected }}</td>
                                         <td class="py-3 px-4 hidden sm:table-cell text-center">
                                             @if ($product->status == 'ATIVO')
                                                 <span class="inline-flex items-center rounded-md bg-green-500 px-2 py-1 text-xs font-medium text-green-900 ring-1 ring-inset ring-green-600/20">
@@ -65,6 +65,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @endif
                     </div>
 
                     <div class="mt-8">

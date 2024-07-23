@@ -19,6 +19,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <div class="overflow-x-auto">
+                        @if ($cities->isEmpty())
+                            <h4 class="text-center py-4">Não há itens cadastrados...</h4>
+                        @else
                         <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
                             <thead class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
                                 <tr>
@@ -60,6 +63,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @endif
                     </div>
 
                     <div class="mt-8">

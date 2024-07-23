@@ -25,6 +25,7 @@ class StoreProductRequest extends FormRequest
             'title' => ['required', 'string', 'max:255', 'unique:products'],
             'city_id' => ['required'],
             'state' => ['boolean'],
+            'qty_elected' => 'max:2',
         ];
     }
 }

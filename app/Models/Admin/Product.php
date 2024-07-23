@@ -14,6 +14,7 @@ class Product extends Model
         'title',
         'city_id',
         'status',
+        'qty_elected',
     ];
 
     public function city()

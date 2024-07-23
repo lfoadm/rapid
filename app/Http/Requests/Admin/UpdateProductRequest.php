@@ -17,6 +17,7 @@ class UpdateProductRequest extends StoreProductRequest
         $rules['title'] = [ 'required', 'max:255' ];
         $rules['city_id'] = [ 'required' ];
         $rules['status'] = [ 'boolean' ];
+        $rules['qty_elected'] = [ 'max:2' ];
 
         return $rules;
     }

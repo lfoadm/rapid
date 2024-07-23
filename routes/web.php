@@ -9,9 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view("home");
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,8 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class)->middleware('is_admin:ADMIN');
     
     //TICKETS
-    // Route::get('tickets/{city}', [TicketController::class, 'create_ticket'])->name('ticket.create');
-    // Route::post('tickets', [TicketController::class, 'store'])->name('ticket.store');
+    Route::get('tickets/{product}/create', [TicketController::class, 'create'])->name('tickets.create');
+    Route::post('tickets', [TicketController::class, 'store'])->name('ticket.store');
     
     // Route::get('/cities/{city}/candidates', [CityController::class, 'candidates'])->name('cities.candidates');
     // Route::get('/iturama/{city}/candidates', [TicketController::class, 'iturama'])->name('ticket.iturama');

@@ -12,37 +12,13 @@
                     <form action="{{ route('ticket.store') }}" method="POST" id="ticket-form">
                         @csrf
 
-                        <div class="mb-4">
-                            <label for="city_id" class="block text-gray-700">{{ $city->name }}</label>
-                            
-                        </div>
-                
-                       <!-- Element Selector -->
-                    <div class="mb-4">
-                        <label for="element" class="block font-medium text-sm text-gray-700">
-                            {{ __('Select Element') }}
-                        </label>
-                        <select id="element" name="element" class="block mt-1 w-full">
-                            <option value="button">Button</option>
-                            <option value="input">Input</option>
-                            <option value="div">Div</option>
-                            <!-- Add more options as needed -->
-                        </select>
-                    </div>
-
-                    <!-- Attributes -->
-                    <div id="attributes-container" class="mb-4">
-                        <label for="attributes" class="block font-medium text-sm text-gray-700">
-                            {{ __('Attributes') }}
-                        </label>
-                        <div class="flex items-center space-x-2">
-                            <input type="text" name="attributes[]" class="block mt-1 w-full" placeholder="Attribute" />
-                            <input type="text" name="values[]" class="block mt-1 w-full" placeholder="Value" />
-                            <button type="button" id="add-attribute" class="px-4 py-2 bg-blue-500 text-white rounded-md">
-                                Add
-                            </button>
-                        </div>
-                    </div>
+                        @include('admin.tickets.partials.multiselect', [
+                            'method' => 'POST',
+                            'buttonText' => 'Criar',
+                            'product' => new App\Models\Admin\Product,
+                            // 'items' => $candidates
+                        ])
+                       
 
                     <!-- Submit Button -->
                     <div class="flex items-center justify-end mt-4">

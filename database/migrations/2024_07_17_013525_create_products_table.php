@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
             $table->boolean('status')->default(true);
+            $table->float('qty_elected', 2);
             $table->timestamps();
         });
     }
